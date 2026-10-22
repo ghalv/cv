@@ -2,20 +2,17 @@
 \documentclass[a4paper,
 		%twocolumn,
 		10pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[norsk]{babel}
+\usepackage[norsk,provide=*]{babel}
 \usepackage{metalogo}
 \usepackage{xifthen}
 \usepackage[colorlinks=true,urlcolor=Blue]{hyperref}
 \usepackage{graphicx}
 \usepackage{fontspec}
-\usepackage[T1]{fontenc}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{titlesec}
 \usepackage[margin=1in]{geometry}
 \usepackage{titling}
 \newfontfamily\cfont{Noto Sans CJK SC}
-\usepackage{libertine}
 
 % Macro to allow image links in XeLaTeX
 \ifxetex
@@ -45,10 +42,10 @@
 
 % Custom title command.
 \renewcommand{\maketitle}{
-	\hspace{.25\textwidth}
+	\hspace{.25\textwidth}%
 	\begin{minipage}[t]{.5\textwidth}
 \par{\centering{\Huge  \bfseries{\theauthor}}\par}
-	\end{minipage}
+	\end{minipage}%
 	\begin{minipage}[t]{.25\textwidth}
 {\footnotesize\hfill{}\color{gray}
 \hfill{}Last ned dokumentet:
@@ -64,15 +61,14 @@
 
 % Setting the font I want:
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage{sqrcaps}
 
 % Making the \entry command
-\newcommand{\entry}[4]{
+\long\def\entry#1#2#3#4{
 \ifthenelse{\isempty{#3}}
 {\slimentry{#1}{#2}}{
 
 \begin{minipage}[t]{.15\linewidth}
-\hfill \textsc{#1}
+\hfill \textrm{\textsc{#1}}
 \end{minipage}
 \hfill\vline\hfill
 \begin{minipage}[t]{.80\linewidth}
@@ -84,7 +80,7 @@
 \newcommand{\slimentry}[2]{
 
 \begin{minipage}[t]{.15\linewidth}
-\hfill \textsc{#1}
+\hfill \textrm{\textsc{#1}}
 \end{minipage}
 \hfill\vline\hfill
 \begin{minipage}[t]{.80\linewidth}
@@ -121,174 +117,105 @@
 
 \maketitle
 
-\section{Bio}
+\section{Profil}
 
-\begin{minipage}[t]{.5\linewidth}
-\begin{tabular}{rp{.75\linewidth}}
+\begin{minipage}[t]{.48\linewidth}
+\begin{tabular}{rp{.70\linewidth}}
 	\baselineskip=20pt
 	\email{} :     & \href{mailto:gunnar@ghalv.no}{gunnar@ghalv.no}\\
 	\www{} : & \href{https://www.ghalv.no}{https://ghalv.no}
 \end{tabular}
 \end{minipage}
-\begin{minipage}[t]{.5\linewidth}
+\begin{minipage}[t]{.48\linewidth}
 \begin{tabular}{rl}
  	\lin{} : & \href{https://www.linkedin.com/in/ghalv}{linkedin.com/in/ghalv}\\
-        \gh{} : & \href{http://github.com/ghalv}{github.com/ghalv}
+		\gh{} : & \href{https://github.com/ghalv}{github.com/ghalv}
 \end{tabular}
 \end{minipage}
 
 \begin{itemize}
-	\item Bakgrunn innen matematikk/statistikk, men jobber som full stack-utvikler, og har erfaring med app-utvikling og web-programmering som konsulent og ansatt.
+	\item AI Engineer og data engineer med bakgrunn innen matematikk og fysikk. Arbeider i skjæringspunktet mellom AI, dataplattformer, programvare og teknisk produktutvikling.
 
-	\item Inngående kjennskap til Python, R, git, shell og linux-systemer (Arch, Debian). Har også jobbet med React Native, node.js, filament/laravel, php, TensorFlow, docker, GraphQL, ansible og relasjonsdatabaser (SQL).
+	\item Utvikler i 2026 Bouvet CV Studio, en AI-basert kompetanseplattform som kombinerer strukturert CV-data, embeddings og semantisk søk for kompetansesøk og automatisk matching mot kundeforespørsler. Arbeider som AI Engineer, arkitekt og utvikler, blant annet med MCP-baserte grensesnitt som gjør data og funksjonalitet tilgjengelig for språkmodeller og AI-baserte arbeidsflyter.
 
-	\item Er glad i å bistå med løsninger på tekniske problemer, ofte i form av kode. Sosialt anlagt som person, og samarbeider godt med andre.
+	\item Har bred erfaring med å bygge og modernisere dataplattformer og integrasjoner rundt komplekse domene- og driftsdata. Har blant annet arbeidet med maskintelemetri, seismiske data, forretningsprosesser, API-integrasjoner og computer vision på fysiske edge-enheter.
 
 \end{itemize}
 
 \section{Erfaring}
 
-\entry{2025--}
-	{Data Engineer}
-	{Equinor}
-  {OSDU-utvikler. Jobber med pipelines, horizons, &c.}
-
-\entry{2024--2025}
-	{Data Engineer}
+\entry{2024--}
+	{AI Engineer}
 	{Bouvet}
-	{Jobber med analyse.}
+	{
+	\textbf{CV Studio -- Bouvet Konsern (2026--).} Utvikler en AI-basert plattform for å gjøre Bouvet sin samlede CV- og kompetansedata søkbar og anvendelig i nye arbeidsflyter. Løsningen kombinerer strukturert data med embeddings og vektorbasert semantisk søk, slik at kompetanse kan finnes på bakgrunn av kontekst, fremfor bare eksakte nøkkelord. Plattformen brukes til matching av konsulenter mot kundeforespørsler og tilbud. Arbeider på tvers av produktutforming, arkitektur, datamodellering, ingest, søk/scoring og MCP-baserte verktøy som eksponerer data og funksjonalitet for språkmodeller og AI-agenter.
+	\newline\vspace{.15cm}
+	\textbf{Kantinedata -- AI/data-pilot for Compass Group (2025).} Utviklet en avgrenset pilot som kombinerte data fra en fysisk SensMax 3D-besøkssensor med menydata i PostgreSQL og Databricks. Brukte AI-funksjoner til klassifisering av fritekst og bygget en enkel Streamlit-applikasjon for utforskende analyse. Piloten ble ikke videreført til produksjon.
+	\newline\vspace{.15cm}
+	\textbf{Equinor -- Subsurface Data Delivery / OSDU (2025).} Utviklet og forvaltet produksjonskritiske Databricks/Spark-pipelines for seismiske data. Migrerte løsninger fra legacy-systemer, harmoniserte data og metadata mot OSDU sine felles domenemodeller og utviklet ny modulær arkitektur med Delta Lake og Unity Catalog. Arbeidet omfattet også datakvalitet, API-eksponering, produksjonsdrift, CI/CD og videreutvikling av løsninger som konsumeres av flere produktteam.
+	\newline\vspace{.15cm}
+	\textbf{Stangeland Maskin -- ny dataplattform og Fabric-migrasjon (2024--2025).} Hadde en sentral rolle i etableringen av en ny dataplattform i Microsoft Fabric. Designet og implementerte datamodeller, integrasjoner og pipelines for telemetri og driftsdata fra blant annet Cat, Volvo, Hitachi, Scania og Komatsu. Arbeidet omfattet arkitektur, harmonisering av heterogene datakilder, API-integrasjoner, inkrementelle dataflyter, datakvalitet og kuraterte datasett for analyse og operative applikasjoner.
+	\newline\vspace{.15cm}
+	\textbf{VB Gruppen -- ny dataplattform i Microsoft Fabric (2024--2025).} Deltok sentralt i etableringen av dataplattform og integrasjoner som del av et større digitaliseringsinitiativ. Arbeidet med arkitektur, dataflyter og automatisering mellom blant annet Dynamics 365, Dataverse, SharePoint, Entra, eksterne API-er og Fabric, samt standardisering av utviklings-, deploy- og integrasjonsmønstre.
+	\newline\vspace{.15cm}
+	\textbf{Altera Infrastructure -- automatisert kjøpsordre (2024--2025).} Designet og utviklet en ende-til-ende løsning for automatisering av kjøpsordrer mellom rederiet og logistikkpartnere. Bygget integrasjonsarkitektur med Azure Data Factory, Azure Functions i Python og partner-API-er/EDI, med validering, berikelse, feil-/retry-håndtering, sporbarhet og CI/CD. Arbeidet krevde både forståelse av forretningsprosessen og oversetting av denne til en robust teknisk løsning.
+	}
 
 \entry{2024}
 	{Programmerer}
 	{Bambusa}
-	{Backend-utvikler for web-basert dashboard skrevet i Filament/Laravel/LiveWire.}
+	{Backend-utvikler for et web-basert administrasjonssystem i Laravel/Filament. Arbeidet med domenemodell, API-er, tilgangsstyring og funksjonalitet knyttet til medlemsregister, lager, ordre og selskapets øvrige salgsplattform.}
 
-\entry{2023--}
-	{Dataingeniør}
+\entry{2023--2024}
+	{Dataingeniør / Tech Lead}
 	{Cerex}
-	{Ledet bl.a. app-utvikling for kunde i prosjekt som skal brukes i idrettshaller, og trente computer vision-modeller til edge devices.}
-
-\entry{2023}
-	{Lærer, deltid}
-	{Sandnes Læringssenter}
-	{Bidro i undervisning av Ukrainske flyktninger i Sandnes Kommune.}
+	{Arbeidet med ScoreBox, et digitalt produkt for automatisk poengføring i padel basert på computer vision. Hadde i en periode hovedansvar for utviklingen og den tekniske helheten fra kamera og modellinferens til scorelogikk, synkronisering og brukergrensesnitt. Trente YOLOv5-modeller, optimaliserte og kvantiserte dem for TensorFlow Lite på Android edge-enheter og arbeidet med arkitektur, produktprioriteringer, ytelse og robusthet. Teknologier inkluderte React Native, Java, TensorFlow Lite, Firebase og WebSocket.}
 
 \entry{2022--2023}
 	{Forskningsassistent}
 	{\uis}
-	{Laget programvare i python som ble utgangspunkt for android-app til datainnsamling. Håndterte også domener, og bidro med datainnsamling og kartlegging. }
-
-\entry{2018--2022}
-	{Instituttrådsmedlem ved \imf}
-	{\uis}
-	{Satt som valgt studentrepresentant i flere perioder. Så til at studentenes interesser ble ivaretatt.}
-
- \entry{2019}
-        {Ambassadør ved \imf}
-        {\uis}
-	{Holdt foredrag om utdanning i matematikk og fysikk på Sandnes vgs, og var representant for studiet i flere år under åpen dag. Lagde flyveblader.}
-
-\entry{2018}
-        {Jurymedlem, Lyses forskningspris 2017}
-	{Lyse Energi}
- 	{Vurderte syv nominerte kandidatur for tildelingen 2017. Prisen ble tildelt prof. Eva Johansson.}
-
-\entry{2017}
-	{Ansettelseskomité for instituttleder ved \imf}
-	{\uis}
-	{Satt i kommité for stillingsutlysning, intervju og ansettelse av instituttleder.}
-
-\entry{2018--2022}
-	{Studentparlamentsmedlem, \uis}
-	{Studentorganisasjonen ved UiS, StOr}
-	{Leder for initiativet 'Kontrær Liste'. Fikk utmerkelse av StOr og hadde innlegg på trykk i Stavanger Aftenblad.}
-
- \entry{2017--2022}
-        {Nestleder for Theta, linjeforening for matematikk- og fysikkstudenter ved UiS}
-	{Studentorganisasjonen ved UiS, StOr}
- 	{Nestleder i flere perioder. Utviklet foreningens nettside, og var med på utarbeidelse av kompendium i hhv. kalkulus og Newtonisk mekanikk.}
-
-\entry{2014--2015}
-        {Butikkmedarbeider}
-        {Elektronikkforhandler}
-
-\entry{2012--2013}
-        {Lærer}
-        {Soma Skole}
-        {Vikariat i Sandnes Kommune. Hadde bl.a. en 7. klasse med til Knaben leirskole.}
-
-\entry{2011}
-        {MIF Comcen-operatør, INI Operations}
-        {Kgl. Norske Marine}
-        {Konstabel med befalsansvar for meninge og representant for tillitsmannsordningen, TMO. Høyeste vurdering på tjenesteuttalelse.}
-
-\entry{2007--2008}
-        {Butikkmedarbeider}
-        {Coop Økonom BA}
+	{Utviklet et digitalt verktøy for feltbasert datainnsamling. Første versjon automatiserte registrering og rapportgenerering; løsningen ble senere videreutviklet som Android-app i Kotlin for mer effektiv bruk under datainnsamling i felt.}
 
 \section{Utdanning}
 
 \entry{2015--2018}
 	{Matematikk og fysikk}
 	{\uis}
-        {Initiativtaker for Linux User Group og Latinforbundet. Førstnevnte lagde skript som hentet relevante busstider via Kolumbus' API og fikk medhold fra Kunnskapsdep. i sak om digital eksamen (2017).}
+	{}
 
-\entry{2013--2014}{Spesiell studiekompetanse}
+\entry{2013--2014}
+	{Spesiell studiekompetanse}
 	{Stavanger Katedralskole}
- 	{Matematikk, fysikk og kjemi.}
+	{Matematikk, fysikk og kjemi.}
 
-\entry{2008-2010}
-        {Generell studiekompetanse}
-	{Bryne videregående skole}
-	{Medlem av elevrådet.}
-
-\section{Sertifikater}
+\section{Utvalgte kurs}
 
 \entry{2023}
-	{Unsupervised Learning, Recommenders, Reinforcement Learning}
-	{Stanford online / DeepLearning.AI}
-	{ID: \href{https://www.coursera.org/account/accomplishments/certificate/RJTW6ZD7FUWG}{RJTW6ZD7FUWG}}
+	{Machine Learning Specialization}
+	{Stanford Online / DeepLearning.AI}
+	{Supervised Machine Learning, Advanced Learning Algorithms samt Unsupervised Learning, Recommenders and Reinforcement Learning.}
 
-\entry{2023}
-	{Advanced Learning Algorithms}
-	{Stanford online / DeepLearning.AI}
-	{ID: \href{https://www.coursera.org/account/accomplishments/certificate/CYZMDL27UEGN}{CYZMDL27UEGN}}
+\entry{2024}
+	{Analytics Academy}
+	{Bouvet Norge AS}
+	{}
 
-\entry{2023}
-	{Supervised Machine Learning: Regression and Classification}
-	{Stanford online / DeepLearning.AI}
-	{ID: \href{https://www.coursera.org/account/accomplishments/certificate/YXVDZ42BTVC7}{YXVDZ42BTVC7}}
-
-\entry{2011}
-	{Kryptokvalifisering grad 2}
-	{Luftforsvarets skolesenter, Kjevik}
-        {ID: 1381201}
+\entry{2024}
+	{Get started with Microsoft Fabric}
+	{Microsoft}
+	{}
 
 \section{Språk}
 
-\entry{Prog.}
-	{Python, R, bash/shell, SQL, React Native/JavaScript, php, C.}
+\entry{Norsk}
+	{Morsmål}
 	{}
 	{}
 
-\entry{Markup}
-	{{\LaTeX}/{\XeTeX}, RMarkdown, HTML og CSS.}
-        {}
-
-\entry{Uttalte}
-	{Norsk, engelsk, grunnleggende latin.}
+\entry{Engelsk}
+	{Profesjonelt arbeidsspråk}
 	{}
 	{}
-
-\section{Interesser}
-
-Interesserer meg for friluftsliv, data, og historie. Leser en del, og går mye tur i skog og mark.
-
-\section{Referanse}
-
-\begin{itemize}
-\item Referanse kan oppgis på henvendelse til \href{mailto:gunnar@ghalv.no}{gunnar@ghalv.no}.
-\end{itemize}
 
 
 \end{document}
